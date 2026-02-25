@@ -26,7 +26,7 @@ const signIn = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role: "user",
+  
     });
 
     res.status(201).json({ message: "User registered successfully" });
@@ -58,7 +58,7 @@ const login = async (req, res) => {
     const token = jwt.sign(
       {
         id: user._id,
-        role: user.role,
+      
       },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRES_IN },
@@ -69,7 +69,7 @@ const login = async (req, res) => {
       user: {
         id: user._id,
         name: user.name,
-        role: user.role,
+     
         email: user.email,
       },
     });
