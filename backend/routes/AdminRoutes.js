@@ -1,0 +1,1 @@
+const admiRouter = require("./model/AdminuserSchema")
