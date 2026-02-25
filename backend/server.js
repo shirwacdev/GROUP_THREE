@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
+const AdminRoutes = require("./routes/AdminRoutes")
 
 mongoose.connect(process.env.MONGO_URL).then( () =>{
     console.log("db Connected")
