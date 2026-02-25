@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+const expre``
+=======
 const express = require('express');
 const router = express.Router();
 
@@ -14,4 +17,8 @@ router.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
+<<<<<<< HEAD
 exports.router = router;
+=======
+>>>>>>> 0e13816244fb303e3b81188e14f286fad7be5ac8
+>>>>>>> 2657665bfb37aa4ac57532f85e9b19636c371cff
