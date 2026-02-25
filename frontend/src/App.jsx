@@ -16,7 +16,8 @@ const App = () => {
 
   return (
     <Login
-      
+      onAdminDemo={() => setPage("admin")}
+      onGoRegister={() => setPage("register")}
     />
   );
 };
