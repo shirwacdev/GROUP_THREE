@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const adminSchema = new mongoose.Schema({
   name: {
@@ -19,8 +19,9 @@ const adminSchema = new mongoose.Schema({
   },
   number: {
     type: Number,
-    required:true
+    required: true,
   },
 });
 
-exports.model = mongoose.model("Admin", adminSchema);
+// Export the actual model so callers get Mongoose model methods directly
+module.exports = mongoose.model('Admin', adminSchema);

@@ -1,24 +1,17 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const router = express.Router();
 
-const adminRouter = require("./model/Admin")
+const { signIn, login } = require('../controller/Regestrer');
 
-const ensureValidId = (id) => mongoose.Types.ObjectId.isValid(id);
+// Register a new admin
+router.post('/register', signIn);
 
+// Login existing admin
+router.post('/login', login);
 
-
-adminRouter.post('/', async (req, res) => {
-  try {
-    const { name, address, email } = req.body;
-
-    if (!name || address === undefined || !email) {
-      return res.status(400).json({ message: 'name, address, and email are required' });
-    }
-
-    const product = await Product.create({ name, address, email });
-    return res.status(201).json(product);
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
+// Simple health check for the route
+router.get('/health', (_req, res) => {
+  res.json({ status: 'ok' });
 });
 
+exports.router = router;
