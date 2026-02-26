@@ -1,1 +1,177 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+@theme {
+  --color-primary: #6366f1;
+  --color-secondary: #8b5cf6;
+  --color-accent: #f43f5e;
+  --color-bg-dark: #111118;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #111118;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* ---- Base Card ---- */
+@layer components {
+  .card {
+    background: #1c1c28;
+    border: 1px solid #2a2a3a;
+    border-radius: 10px;
+  }
+
+  .card-hover {
+    background: #1c1c28;
+    border: 1px solid #2a2a3a;
+    border-radius: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .card-hover:hover {
+    border-color: #6366f1;
+  }
+
+  /* Keep these as aliases for old class names used in JSX */
+  .handmade-card {
+    background: #1c1c28;
+    border: 1px solid #2a2a3a;
+    border-radius: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .handmade-card:hover {
+    border-color: #6366f1;
+  }
+
+  .glass-card {
+    background: #1c1c28;
+    border: 1px solid #2a2a3a;
+    border-radius: 10px;
+  }
+
+  /* ---- Buttons ---- */
+  .handmade-btn {
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+
+  /* ---- Inputs ---- */
+  .handmade-input {
+    background: #0f0f18;
+    border: 1px solid #2a2a3a;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    padding: 0.75rem 1rem;
+    color: #e2e8f0;
+    width: 100%;
+    transition: border-color 0.15s;
+  }
+
+  .handmade-input:focus {
+    border-color: #6366f1;
+    outline: none;
+  }
+
+  .handmade-input::placeholder {
+    color: #4b5563;
+  }
+}
+
+/* ---- Typography helpers ---- */
+.italic-heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.scribble-text {
+  font-family: 'Inter', sans-serif;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.brush-stroke {
+  color: #6366f1;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111118;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a3a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a50;
+}
+
+/* ---- Responsive Helpers ---- */
+@media (max-width: 768px) {
+  .mobile-hide {
+    display: none !important;
+  }
+  
+  .mobile-column {
+    flex-direction: column !important;
+  }
+  
+  .mobile-grid-1 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .mobile-padding-sm {
+    padding: 16px !important;
+  }
+}
+
+/* Sidebar behavior for mobile */
+@media (max-width: 1024px) {
+  .sidebar-container {
+    position: fixed !important;
+    z-index: 100 !important;
+    height: 100vh !important;
+  }
+  
+  .sidebar-collapsed {
+    width: 0 !important;
+    overflow: hidden !important;
+    border-right: none !important;
+  }
+  
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
+    z-index: 90;
+  }
+}

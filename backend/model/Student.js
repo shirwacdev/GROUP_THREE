@@ -8,11 +8,21 @@ const studentSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true
   },
   password: {
     type: String,
     required: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  status: {
+    type: String,
+    enum: ['active', 'pending'],
+    default: 'active'
+  }
 });
 
-exports.model = mongoose.model("student", studentSchema);
+module.exports = mongoose.model("Student", studentSchema);
